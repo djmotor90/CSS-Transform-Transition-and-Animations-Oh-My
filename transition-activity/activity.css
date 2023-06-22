@@ -3,5 +3,69 @@ button {
 }
 
 button:hover {
-    transition-delay: 2s;
+    /* filter: invert(100); Does a close job but could not invert text only*/ 
+    transition: 2s;
+    color: white;
+  }
+
+  .caption {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .caption__media {
+    display: block;
+    min-width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .caption__overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 10px;
+    color: white;
+    transform: translateY(100%);
+    transition: transform .35s ease-out;
+  }
+  
+  .caption:hover .caption__overlay {
+    transform: translateY(0);
+  }
+  .caption__overlay__title {
+    margin: 0;
+    width: 33%;
+    padding: 0 0 12px;
+    transform: translateY(calc(-100% - 10px)); /* +10px overlay padding */
+    transition: transform .35s ease-out;
+  }
+  .caption__overlay__content{
+    width: 70%;
+    padding: 150px;
+  }
+  
+  .caption:hover .caption__overlay__title {
+    transform: translateY(0);
+  }
+
+  .caption::before {
+    content: ' ';
+    position: absolute;
+    top: 0;
+    right: 135px;
+    bottom: 5px;
+    left: 135px;
+    background: transparent;
+    transition: background .35s ease-out;
+  }
+  
+  .caption:hover::before {
+    background: rgba(0, 0, 0, .5);
+  }
+  .caption {
+    
+    transform: translateZ(0);
   }
